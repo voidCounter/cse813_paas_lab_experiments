@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en-us">
+<head>
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .container {
+            width: 350px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .error {
+            color: #D8000C;
+            background-color: #FFD2D2;
+            border: 1px solid #D8000C;
+        }
+        .success {
+            color: #4F8A10;
+            background-color: #DFF2BF;
+            border: 1px solid #4F8A10;
+        }
+    </style>
+</head>
+<body>
+<div style="top: 10px; left: 10px; z-index: 1000;">
+    <a href="https://cse813-paas-experiments.pages.dev" style="background-color: #f0f0f0; padding: 5px 10px; border: 1px solid #ccc; text-decoration: none; color: #333;">Go to experiments</a>
+</div>
+<div class="container">
+    <h1>Register User</h1>
+
+    <div th:if="${error != null}" class="message error">
+        <p th:text="${error}">Error message</p>
+    </div>
+
+    <div th:if="${success != null}" class="message success">
+        <p th:text="${success}">Success message</p>
+    </div>
+
+    <form action="/register" method="post" th:object="${user}">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" th:field="*{username}" required autofocus>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" th:field="*{email}" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <button type="submit">Register</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+

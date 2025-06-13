@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en-us">
+<head>
+    <title>N Even Numbers</title>
+</head>
+<body>
+<div style="top: 10px; left: 10px; z-index: 1000;">
+    <a href="https://cse813-paas-experiments.pages.dev" style="background-color: #f0f0f0; padding: 5px 10px; border: 1px solid #ccc; text-decoration: none; color: #333;">Go to experiments</a>
+</div>
+<h1>Generate N Even Numbers(<100000)</h1>
+<form action="/generate" method="post">
+    <label for="n">Enter a number (n):</label>
+    <input type="number" id="n" name="n" required min="1">
+    <button type="submit">Generate</button>
+</form>
+
+<div th:if="${n != null}">
+    <h2>Even numbers up to <span th:text="${n}">n</span>:</h2>
+    <h2 th:text="${message}">message</h2>
+    <ul>
+        <li th:each="num : ${evenNumbers}" th:text="${num}"></li>
+    </ul>
+</div>
+</body>
+</html>
+

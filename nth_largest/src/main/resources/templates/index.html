@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en-us">
+<head>
+    <title>Nth Largest Number Finder</title>
+</head>
+<body>
+<div style="top: 10px; left: 10px; z-index: 1000;">
+    <a href="https://cse813-paas-experiments.pages.dev" style="background-color: #f0f0f0; padding: 5px 10px; border: 1px solid #ccc; text-decoration: none; color: #333;">Go to experiments</a>
+</div>
+<h1>Nth Largest Number Finder</h1>
+<form action="/find-largest" method="post">
+    <label for="numbers">Enter numbers separated by spaces:</label><br/>
+    <input type="text" id="numbers" name="numbers" th:value="${numbers}" style="width: 300px;"><br/><br/>
+    <label for="n">Enter N (to find the Nth largest, e.g., 1 for largest, 2 for second largest):</label><br/>
+    <input type="number" id="n" name="n" th:value="${n != null ? n : 1}" min="1"><br/><br/>
+    <button type="submit">Find Nth Largest</button>
+</form>
+
+<div th:if="${error != null}">
+    <h2 style="color: red;" th:text="${error}">Error message</h2>
+</div>
+
+<div th:if="${largest != null}">
+    <h2 th:text="${message}"></h2>
+    <h3 th:text="${largest}"></h3>
+</div>
+
+</body>
+</html>
+
