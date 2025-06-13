@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'experiment_index/**'
 jobs:
   deploy:
     runs-on: ubuntu-latest

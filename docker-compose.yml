@@ -1,0 +1,53 @@
+services:
+  matrix_multiplication:
+    container_name: matrix_multiplication_service
+    build:
+      context: ./matrix_multiplication
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8080"
+    image: phrotonis/cse813_paas_matrix_multiplication
+
+  n_even:
+    container_name: n_even_service
+    build:
+      context: ./n_even
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8080"
+    image: phrotonis/cse813_paas_n_even
+
+  nth_largest:
+    container_name: nth_largest_service
+    build:
+      context: ./nth_largest
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8080"
+    image: phrotonis/cse813_paas_nth_largest
+
+  user_registration:
+    container_name: user_registration_service
+    build:
+      context: ./user_registration
+      dockerfile: Dockerfile
+    environment:
+      - DB_URL=${DB_URL}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+    ports:
+      - "8084:8080"
+    image: phrotonis/cse813_paas_user_registration
+
+  user_validation:
+    container_name: user_validation_service
+    build:
+      context: ./user_validation
+      dockerfile: Dockerfile
+    environment:
+      - DB_URL=${DB_URL}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+    ports:
+      - "8085:8080"
+    image: phrotonis/cse813_paas_user_validation
