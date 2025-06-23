@@ -1,6 +1,5 @@
 # CSE813 PaaS Lab Experiments
-
-[![Index deployment](https://github.com/voidCounter/cse813_paas_lab_experiments/actions/workflows/deploy-client.yml/badge.svg)](https://github.com/voidCounter/cse813_paas_lab_experiments/actions/workflows/deploy-client.yml)
+[![Deploy Client](https://github.com/voidCounter/cse813_paas_lab_experiments/actions/workflows/deploy-client.yml/badge.svg?branch=main)](https://github.com/voidCounter/cse813_paas_lab_experiments/actions/workflows/deploy-client.yml)
 [![Service deployments](https://github.com/voidCounter/cse813_paas_lab_experiments/actions/workflows/service-cd.yml/badge.svg)](https://github.com/voidCounter/cse813_paas_lab_experiments/actions/workflows/service-cd.yml)
 
 This project contains a collection of Spring Boot microservices developed for the CSE813 Cloud Computing Lab. Each service is designed to be independently deployable and scalable. Visit at [https://cse813-paas-experiments.pages.dev/](https://cse813-paas-experiments.pages.dev/) to access the deployed services.
